@@ -1,6 +1,7 @@
 package tests;
 
-import static org.junit.Assert.*;
+import logic.Climber;
+import inputDomain.Input;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -37,13 +38,13 @@ public class ClimbStairsTest {
 	@Test
 	public void climbFlightsTest() {
 		
-		climber = new Climber(oneFlightStairwell.getStride());
+		climber = new Climber(oneFlightStairwell.getStrideLength());
 		
 		int oneFlightAnswer = 5;
-		Assert.assertEquals(oneFlightAnswer, climber.climb());
+		Assert.assertEquals(oneFlightAnswer, climber.climb(oneFlightStairwell.getStairs()));
 
 		int twoFlightsAnswer = 12;
-		Assert.assertEquals(twoFlightsAnswer, climber.climb());
+		Assert.assertEquals(twoFlightsAnswer, climber.climb(oneFlightStairwell.getStairs()));
 		
 	}
 	

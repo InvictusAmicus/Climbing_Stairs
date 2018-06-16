@@ -1,6 +1,7 @@
 package tests;
 
-import static org.junit.Assert.*;
+import inputDomain.Input;
+import inputDomain.InputChecker;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,8 +14,8 @@ public class LegalInputTest {
 	
 	Input oneFlightStairwell;
 	Input illegalStairwell;
-	Input illegalSteps;
-	Climber climber;
+	Input illegalStrides;
+	
 	@BeforeClass
 	public void setup() {
 		
@@ -31,7 +32,7 @@ public class LegalInputTest {
 		int[] illegalSteps = {-1};
 		illegalStairwell = new Input(illegalSteps, strideLength);
 		
-		illegalSteps = new Input(oneFlightSteps, -strideLength);
+		illegalStrides = new Input(oneFlightSteps, -strideLength);
 	}
 	
 	@Test
@@ -43,20 +44,18 @@ public class LegalInputTest {
 		isValidSteps = InputChecker.checkSteps(illegalStairwell.getStairs());
 		Assert.assertFalse(isValidSteps);
 		
-		isValidSteps = InputChecker.checkSteps(illegalSteps.getStairs());
+		isValidSteps = InputChecker.checkSteps(illegalStrides.getStairs());
 		Assert.assertTrue(isValidSteps);
 		
-		boolean isValidStride = InputChecker.checkStride(oneFlightStairwell.getStride());
+		boolean isValidStride = InputChecker.checkStride(oneFlightStairwell.getStrideLength());
 		Assert.assertTrue(isValidStride);
 		
-		isValidStride = InputChecker.checkSteps(illegalStairwell.getStride());
+		isValidStride = InputChecker.checkStride(illegalStairwell.getStrideLength());
 		Assert.assertTrue(isValidStride);
 		
-		isValidStride = InputChecker.checkSteps(illegalSteps.getStride());
+		isValidStride = InputChecker.checkStride(illegalStrides.getStrideLength());
 		Assert.assertFalse(isValidStride);
 		
-		
-		fail("Not yet implemented");
 	}
 	
 
