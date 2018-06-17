@@ -9,6 +9,6 @@ public class ClimbingService {
 	public String attemptClimb(int[] stairs, int stride)
 	{
 		climber = new Climber(stride);
-		return Integer.toString(climber.climb(stairs));
+		return climber.climb(stairs);
 	}
 }

@@ -13,15 +13,15 @@ public class Climber {
 		this.strideLength = strideLength;
 	}
 
-	public int climb(int[] stairs) {
+	public String climb(int[] stairs) {
 		
 		if(!InputChecker.checkSteps(stairs))
 		{
-			System.out.println("{\"message\": \"Invalid staircase\"}");
+			return("{\"message\": \"Invalid staircase\"}");
 		}
 		if(!InputChecker.checkStride(strideLength))
 		{
-			System.out.println("{\"message\": \"Invalid stride length\"}");
+			return("{\"message\": \"Invalid stride length\"}");
 		}
 		
 		int numOfFloors = stairs.length;
@@ -33,7 +33,7 @@ public class Climber {
 				numOfStrides += 1;
 			}
 		}
-		return numOfStrides;
+		return Integer.toString(numOfStrides);
 	}
 
 }

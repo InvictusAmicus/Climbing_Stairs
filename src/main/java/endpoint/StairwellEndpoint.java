@@ -1,25 +1,28 @@
 package endpoint;
 
+import inputDomain.Input;
+
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import service.ClimbingService;
-//import util.JSONUtil;
+import util.JSONUtil;
 
-@Path("/StairwayToHeaven")
+@Path("/stairway")
 public class StairwellEndpoint {
 	
-	@Path("/{stairs}/{stride}")
-	//@Path("/rise")
+	JSONUtil util = new JSONUtil();
+	
+	@Path("/climb")
 	@POST
 	@Produces({"application/json"})
-	public String returnStrideCount(@PathParam("stairs") int stairs, @PathParam("stride")int stride) {
+	public String returnStrideCount(String formData) {
 		
+		Input data = util.getObjectForJSON(formData, Input.class);
 		ClimbingService climbingService = new ClimbingService();
-		String jsonString = climbingService.attemptClimb(new int[]{stairs}, 2);
+		String jsonString = climbingService.attemptClimb(data.getStairs(), data.getStrideLength());
 		return jsonString;
 	}
-	
+
 }

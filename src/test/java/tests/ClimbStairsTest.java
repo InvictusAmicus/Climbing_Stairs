@@ -40,10 +40,10 @@ public class ClimbStairsTest {
 		
 		climber = new Climber(oneFlightStairwell.getStrideLength());
 		
-		int oneFlightAnswer = 5;
+		String oneFlightAnswer = "5";
 		assertEquals(oneFlightAnswer, climber.climb(oneFlightStairwell.getStairs()));
 
-		int twoFlightsAnswer = 12;
+		String twoFlightsAnswer = "12";
 		assertEquals(twoFlightsAnswer, climber.climb(twoFlightStairwell.getStairs()));
 		
 	}
