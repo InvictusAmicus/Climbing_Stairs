@@ -5,7 +5,7 @@ import inputDomain.Input;
 
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class ClimbStairsTest {
 	Input illegalSteps;
 	Climber climber;
 	@BeforeClass
-	public void setup() {
+	public static void setup() {
 		
 	}
 	
@@ -41,10 +41,10 @@ public class ClimbStairsTest {
 		climber = new Climber(oneFlightStairwell.getStrideLength());
 		
 		int oneFlightAnswer = 5;
-		Assert.assertEquals(oneFlightAnswer, climber.climb(oneFlightStairwell.getStairs()));
+		assertEquals(oneFlightAnswer, climber.climb(oneFlightStairwell.getStairs()));
 
 		int twoFlightsAnswer = 12;
-		Assert.assertEquals(twoFlightsAnswer, climber.climb(oneFlightStairwell.getStairs()));
+		assertEquals(twoFlightsAnswer, climber.climb(twoFlightStairwell.getStairs()));
 		
 	}
 	
@@ -55,7 +55,7 @@ public class ClimbStairsTest {
 	}
 	
 	@AfterClass
-	public void dispose() {
+	public static void dispose() {
 		
 	}
 }

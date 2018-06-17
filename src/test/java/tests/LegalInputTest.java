@@ -5,7 +5,9 @@ import inputDomain.InputChecker;
 
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -17,7 +19,7 @@ public class LegalInputTest {
 	Input illegalStrides;
 	
 	@BeforeClass
-	public void setup() {
+	public static void setup() {
 		
 	}
 	
@@ -39,22 +41,22 @@ public class LegalInputTest {
 	public void checkLegalityTest() {
 		
 		boolean isValidSteps = InputChecker.checkSteps(oneFlightStairwell.getStairs());
-		Assert.assertTrue(isValidSteps);
+		assertTrue(isValidSteps);
 		
 		isValidSteps = InputChecker.checkSteps(illegalStairwell.getStairs());
-		Assert.assertFalse(isValidSteps);
+		assertFalse(isValidSteps);
 		
 		isValidSteps = InputChecker.checkSteps(illegalStrides.getStairs());
-		Assert.assertTrue(isValidSteps);
+		assertTrue(isValidSteps);
 		
 		boolean isValidStride = InputChecker.checkStride(oneFlightStairwell.getStrideLength());
-		Assert.assertTrue(isValidStride);
+		assertTrue(isValidStride);
 		
 		isValidStride = InputChecker.checkStride(illegalStairwell.getStrideLength());
-		Assert.assertTrue(isValidStride);
+		assertTrue(isValidStride);
 		
 		isValidStride = InputChecker.checkStride(illegalStrides.getStrideLength());
-		Assert.assertFalse(isValidStride);
+		assertFalse(isValidStride);
 		
 	}
 	
@@ -65,7 +67,7 @@ public class LegalInputTest {
 	}
 	
 	@AfterClass
-	public void dispose() {
+	public static void dispose() {
 		
 	}
 }
